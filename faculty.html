@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - AGEMC College</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: black;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+        .nav a {
+            margin: 0 15px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .faculty-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .faculty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .faculty img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .faculty-text {
+            text-align: left;
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function revealOnScroll() {
+                let faculties = document.querySelectorAll(".faculty");
+                let windowHeight = window.innerHeight;
+                faculties.forEach(function(fac) {
+                    let position = fac.getBoundingClientRect().top;
+                    if (position < windowHeight - 50) {
+                        fac.classList.add("show");
+                    }
+                });
+            }
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Faculty Members</h1>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="faculty.html">Faculty</a>
+        </nav>
+    </header>
+    
+    <div class="faculty-section">
+        <div class="faculty">
+            <img src="ai_logo.png" alt="AI Logo">
+            <div class="faculty-text">
+                <h2>Artificial Intelligence</h2>
+                <p><strong>Dr. Swalpa Kumar Roy</strong> - Assistant Professor</p>
+                <p>B.Tech (WBUT, Kolkata), M.E (IIEST, Shibpur) and Ph.D in Engg. (CU; Work done at CVPR Unit, ISI Kolkata)</p>
+            </div>
+        </div>
+        
+        <div class="faculty">
+            <img src="cse_logo.png" alt="CSE Logo">
+            <div class="faculty-text">
+                <h2>Computer Science</h2>
+                <p><strong>Mr. Sagun Tudu</strong> - Assistant Professor</p>
+                <p>B.Tech in CSE (GCECT), M.Tech in CSE (IIT KGP)</p>
+                <p><strong>Dr. Dhiman Mondal</strong> - Assistant Professor</p>
+            </div>
+        </div>
+        
+        <div class="faculty">
+            <img src="ee_logo.png" alt="EE Logo">
+            <div class="faculty-text">
+                <h2>Electrical Engineering</h2>
+                <p><strong>Dr. Bikash Patel</strong> - Assistant Professor</p>
+                <p>B.E. in Electrical (JU), M.E. in Electrical (JU) and Ph.D. in Electrical (JU)</p>
+                <p><strong>Mr. Md. Tasinul Hoque</strong> - Assistant Professor</p>
+                <p>B.Tech in EE (DIET), M.Tech in EE (Power Systems, KGEC)</p>
+            </div>
+        </div>
+        
+        <div class="faculty">
+            <img src="ece_logo.png" alt="ECE Logo">
+            <div class="faculty-text">
+                <h2>Electronics and Communication Engineering (ECE)</h2>
+                <p><strong>Dr. Sourish Sanyal</strong> - Associate Professor</p>
+                <p>B.Tech in ECE (IEM), M.E.TELE (JU), MBA in Finance (JU) and Ph.D. in Engineering (Robotics and AI)</p>
+            <div class="faculty-text">
+                
+                <p><strong>Mr. Mirwaiz Rahaman</strong> - Assistant Professor</p>
+                <p>B.Tech in ECE (KGEC), M.Tech in ECE (NIT Durgapur)</p>
+                <p><strong>Mr. Sauren Sarkar</strong> - Assistant Professor</p>
+                <p>B.Tech in ECE (WBUT), M.Tech in ECE (MAKAUT)</p>
+                <p><strong>Mr. Nawaj Sarif</strong> - Assistant Professor</p>
+                <p>B.Tech (HIT, Kolkata), M.Tech (NITTTR, Kolkata)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

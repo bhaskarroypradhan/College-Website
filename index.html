@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGEMC College</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+
+        .nav div, .nav-link {
+            margin: 0 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav div:hover, .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .college-photo {
+            display: block;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-college, .department {
+            text-align: left;
+            margin: 40px auto;
+            width: 80%;
+            max-width: 1000px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .department {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform 1s ease-out, opacity 1s ease-out;
+        }
+
+        .department img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .department-text {
+            text-align: left;
+            color: black;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">ALIPURDUAR GOVERNMENT ENGINEERING AND MANAGEMENT COLLEGE</h1>
+        <nav class="nav">
+            <div id="about">About</div>
+            <div id="community">Community</div>
+            <div id="academics">Academics</div>
+            <div id="admissions">Admissions</div>
+            <a href="faculty.html" class="nav-link">Faculty</a>
+            <div id="notice">Notice</div>
+        </nav>
+    </header>
+    
+    <img src="college.jpg" alt="College Photo" class="college-photo">
+    
+    <div class="about-college">
+        <h2>About</h2>
+        <p>Alipurduar Government Engineering and Management College (AGEMC) is a premier institution that offers cutting-edge education in the fields of engineering and management. Established with a vision to nurture the brightest minds, AGEMC provides students with a strong academic foundation, state-of-the-art facilities, and a dynamic learning environment.</p>
+        <p>The college focuses on research, innovation, and industry collaboration, ensuring students develop skills that align with modern technological advancements. Students also engage in extracurricular activities, leadership programs, and technical workshops to enhance their overall growth.</p>
+    </div>
+
+    <div class="department" id="ai">
+        <img src="ai_logo.png" alt="AI Logo">
+        <div class="department-text">
+            <h2>Artificial Intelligence</h2>
+            <p>The Department of Artificial Intelligence covers emerging fields such as machine learning, deep learning, and neural networks. The curriculum ensures students gain real-world experience by working on AI-based projects, making them industry-ready.</p>
+        </div>
+    </div>
+
+    <div class="department">
+        <img src="ee_logo.png" alt="EE Logo">
+        <div class="department-text">
+            <h2>Electrical Engineering</h2>
+            <p>Electrical Engineering at AGEMC focuses on power generation, circuit design, and embedded systems. Students gain practical skills through hands-on projects, preparing them for careers in energy and automation industries.</p>
+        </div>
+    </div>
+
+    <div class="department">
+        <img src="cse_logo.png" alt="CSE Logo">
+        <div class="department-text">
+            <h2>Computer Science & Engineering</h2>
+            <p>The Computer Science department provides training in software development, cybersecurity, and cloud computing. Students learn programming languages such as Python, Java, and C++ to tackle complex tech challenges.</p>
+        </div>
+    </div>
+
+    <div class="department">
+        <img src="ece_logo.png" alt="ECE Logo">
+        <div class="department-text">
+            <h2>Electronics and Communication Engineering</h2>
+            <p>ECE students explore semiconductor technology, telecommunications, and IoT. The department offers cutting-edge research opportunities in modern communication networks and embedded systems.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p style="text-align: center; padding: 20px; background: #222; color: white;">
+            &copy; Designed by Bhaskar Roy Pradhan
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth scroll for navigation links
+            document.getElementById("admissions").addEventListener("click", function() {
+                document.getElementById("ai").scrollIntoView({ behavior: "smooth" });
+            });
+
+            document.getElementById("about").addEventListener("click", function() {
+                document.querySelector(".about-college").scrollIntoView({ behavior: "smooth" });
+            });
+
+            // Function to reveal departments on scroll
+            function revealOnScroll() {
+                let departments = document.querySelectorAll(".department");
+                let windowHeight = window.innerHeight;
+
+                departments.forEach(function(dept) {
+                    let position = dept.getBoundingClientRect().top;
+                    if (position < windowHeight - 100) {
+                        dept.classList.add("show");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealOnScroll);
+        });
+    </script>
+</body>
+</html> 
